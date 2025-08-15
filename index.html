@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VEA Marketplace — Minimal</title>
+  <style>
+    :root{
+      --bg:#0f1115; --panel:#121316; --muted:#9aa0a6; --accent:#27b26b; --glass: rgba(255,255,255,0.03);
+      --radius:12px; --gap:18px; --transition:200ms ease;
+      --sidebar-w:260px; --sidebar-collapsed-w:72px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue';
+      background:linear-gradient(180deg,#071018 0%, #0f1115 100%); color:#e6eef3; padding:24px; display:flex; gap:var(--gap);
+    }
+    .app{display:flex; width:100%; height:calc(100vh - 48px); gap:var(--gap)}
+    .sidebar{
+      width:var(--sidebar-w); min-width:var(--sidebar-w);
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.015));
+      border:1px solid rgba(255,255,255,0.04); border-radius:var(--radius);
+      padding:18px; display:flex; flex-direction:column; gap:14px;
+    }
+    .brand{display:flex; align-items:center; gap:12px}
+    .logo{width:36px; height:36px; border-radius:8px; background:linear-gradient(135deg,#15463a,#1fa46a);
+          display:flex; align-items:center; justify-content:center; font-weight:700}
+    .btn{background:transparent; border:1px solid rgba(255,255,255,0.03); padding:8px 12px; 
+         border-radius:10px; cursor:pointer; color:var(--muted); font-size:13px}
+    .btn.primary{background:var(--accent); color:#02160f; border:none}
+    .search{background:var(--glass); padding:8px; border-radius:10px; display:flex; align-items:center; gap:8px}
+    .search input{background:transparent;border:none;outline:none;color:var(--muted); width:100%}
+    .main{flex:1; min-width:0; display:flex; flex-direction:column; gap:var(--gap); overflow-y:auto}
+    .topbar{display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap}
+    .page-title{font-size:18px}
+    .top-actions{display:flex; gap:10px; flex-wrap:wrap}
+    @media (max-width:780px){
+      body{padding:12px; flex-direction:column}
+      .sidebar{width:100%; min-width:auto; flex-direction:row; align-items:center; justify-content:space-between;}
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo">VE</div>
+        <div><h1 style="font-size:13px;margin:0">Vision Eval</h1></div>
+      </div>
+
+      <!-- New Chat now links to chat.html -->
+      <button class="btn primary" id="newChatBtn">New Chat</button>
+      <div class="search"><input id="chatSearch" placeholder="Search chats..."/></div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+      <!-- TOPBAR -->
+      <div class="topbar">
+        <div class="page-title" id="pageTitle">Dashboard</div>
+        <div class="top-actions">
+          <button class="btn" id="marketplaceBtn">Marketplace</button>
+          <button class="btn" id="loginBtn">Login</button>
+        </div>
+      </div>
+
+      <!-- CONTENT -->
+      <section id="content">
+        <div class="card"><h3>Welcome</h3><p style="color:var(--muted)">Select Marketplace, New Chat or Login to continue.</p></div>
+      </section>
+    </main>
+
+  </div>
+
+  <script>
+    // Marketplace click
+    document.getElementById('marketplaceBtn').addEventListener('click', () => {
+      document.getElementById('content').innerHTML =
+        '<div class="card"><h3>Marketplace</h3><p style="color:var(--muted)">Here will be your listings...</p></div>';
+    });
+
+    // Login click → redirect to login.html
+    document.getElementById('loginBtn').addEventListener('click', () => {
+      window.location.href = 'login.html';
+    });
+
+    // New chat click → redirect to chat.html
+    document.getElementById('newChatBtn').addEventListener('click', () => {
+      window.location.href = 'chat.html';
+    });
+  </script>
+</body>
+</html>
