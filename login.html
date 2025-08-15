@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgentEval - Login</title>
+<style>
+    :root {
+        --bg: linear-gradient(180deg,#071018 0%, #0f1115 100%);
+        --panel: #121316;
+        --text: #e6eef3;
+        --muted: #9aa0a6;
+        --accent: #27b26b;
+        --radius: 12px;
+    }
+
+    body {
+        margin: 0;
+        font-family: Inter, Arial, sans-serif;
+        background: var(--bg);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: var(--text);
+    }
+
+    .login-box {
+        background: var(--panel);
+        padding: 30px;
+        border-radius: var(--radius);
+        box-shadow: 0 0 15px rgba(0,0,0,0.3);
+        width: 320px;
+        text-align: center;
+        border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    h2 {
+        margin-bottom: 5px;
+        font-weight: 600;
+    }
+
+    p {
+        color: var(--muted);
+        font-size: 14px;
+        margin-top: 0;
+    }
+
+    label {
+        display: block;
+        text-align: left;
+        margin-top: 15px;
+        font-size: 14px;
+        color: var(--muted);
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border-radius: 8px;
+        border: 1px solid rgba(255,255,255,0.05);
+        background: transparent;
+        color: var(--text);
+        font-size: 14px;
+        outline: none;
+    }
+
+    button {
+        margin-top: 20px;
+        width: 100%;
+        padding: 10px;
+        background: var(--accent);
+        color: #02160f;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        font-weight: 500;
+    }
+
+    button:hover {
+        filter: brightness(1.1);
+    }
+
+    .or {
+        margin: 15px 0;
+        font-size: 14px;
+        color: var(--muted);
+    }
+
+    .social-btn {
+        width: 48%;
+        padding: 8px;
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 8px;
+        background: rgba(255,255,255,0.03);
+        cursor: pointer;
+        font-size: 14px;
+        color: var(--muted);
+    }
+
+    .social-container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    a {
+        color: var(--accent);
+        text-decoration: none;
+        font-size: 13px;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    .links {
+        margin-top: 15px;
+        font-size: 13px;
+        color: var(--muted);
+    }
+</style>
+</head>
+<body>
+
+<div class="login-box">
+    <h2>AgentEval</h2>
+    <p>Sign in to your AI Agent Evaluation platform</p>
+
+    <form onsubmit="return login(event)">
+        <label>Email</label>
+        <input type="email" id="email" placeholder="Enter your email" required>
+
+        <label>Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required>
+
+        <button type="submit">Sign In</button>
+    </form>
+
+    <div class="or">Or continue with</div>
+    <div class="social-container">
+        <button class="social-btn">Google</button>
+        <button class="social-btn">GitHub</button>
+    </div>
+
+    <div class="links">
+        <a href="#">Forgot your password?</a><br><br>
+        Don't have an account? <a href="#">Sign up</a>
+    </div>
+</div>
+
+<script>
+function login(event) {
+    event.preventDefault();
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+
+    if(email && password) {
+        // Redirect back to your dashboard page after login
+        window.location.href = "index.html";
+    } else {
+        alert("Please fill in all fields.");
+    }
+}
+</script>
+
+</body>
+</html>
